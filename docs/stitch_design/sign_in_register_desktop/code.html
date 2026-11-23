@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In &amp; Register (Desktop) — PlumLedger</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'midnight-plum': '#190019',
+        'royal-plum': '#2B124C',
+        'velvet-plum': '#522B5B',
+        'dusty-mauve': '#854F6C',
+        'warm-blush': '#DFB6B2',
+        'peach-cream': '#FBE4D8',
+        'success': '#1B6B45',
+        'on-success': '#FFFFFF',
+        'success-container': '#D3F3E0',
+        'on-success-container': '#0B3B24',
+        'warning': '#9A4D00',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FFE6CC',
+        'on-warning-container': '#5C2D00',
+        'light-primary': '#3A1444',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#522B5B',
+        'light-on-primary-container': '#FBE4D8',
+        'light-secondary': '#834D6A',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#FFBBDD',
+        'light-on-secondary-container': '#4E203B',
+        'light-tertiary': '#5D3F3D',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#DFB6B2',
+        'light-on-tertiary-container': '#190019',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#FDF7F4',
+        'light-on-background': '#190019',
+        'light-surface': '#FDF7F4',
+        'light-surface-dim': '#F2E4DE',
+        'light-surface-bright': '#FFFFFF',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#FAF0EC',
+        'light-surface-container': '#F5E7E1',
+        'light-surface-container-high': '#EFE0DA',
+        'light-surface-container-highest': '#E8D5CE',
+        'light-on-surface': '#190019',
+        'light-surface-variant': '#ECDFE9',
+        'light-on-surface-variant': '#4D444D',
+        'light-outline': '#7E747D',
+        'light-outline-variant': '#D0C3CD',
+        'light-inverse-surface': '#2B124C',
+        'light-inverse-on-surface': '#FBE4D8',
+        'light-inverse-primary': '#E8B5EF',
+        'light-shadow': '#190019',
+        'light-scrim': '#190019',
+        'dark-primary': '#E8B5EF',
+        'dark-on-primary': '#472150',
+        'dark-primary-container': '#522B5B',
+        'dark-on-primary-container': '#FBE4D8',
+        'dark-secondary': '#F6B3D4',
+        'dark-on-secondary': '#4E203B',
+        'dark-secondary-container': '#683652',
+        'dark-on-secondary-container': '#FBE4D8',
+        'dark-tertiary': '#E6BDB9',
+        'dark-on-tertiary': '#442927',
+        'dark-tertiary-container': '#4F3331',
+        'dark-on-tertiary-container': '#FBE4D8',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#190019',
+        'dark-on-background': '#FBE4D8',
+        'dark-surface': '#190019',
+        'dark-surface-dim': '#190019',
+        'dark-surface-bright': '#452D67',
+        'dark-surface-container-lowest': '#140014',
+        'dark-surface-container-low': '#2B124C',
+        'dark-surface-container': '#351A54',
+        'dark-surface-container-high': '#43245E',
+        'dark-surface-container-highest': '#522B5B',
+        'dark-on-surface': '#FBE4D8',
+        'dark-surface-variant': '#4D444D',
+        'dark-on-surface-variant': '#DFB6B2',
+        'dark-outline': '#998D97',
+        'dark-outline-variant': '#522B5B',
+        'dark-inverse-surface': '#FBE4D8',
+        'dark-inverse-on-surface': '#190019',
+        'dark-inverse-primary': '#522B5B',
+        'dark-shadow': '#000000',
+        'dark-scrim': '#000000',
+      },
+      borderRadius: {
+        'sm': '8px',
+        'DEFAULT': '12px',
+        'md': '16px',
+        'lg': '20px',
+        'xl': '24px',
+        '2xl': '32px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '12px',
+        'gutter-lg': '16px',
+        'gutter-xl': '24px',
+        'section': '32px',
+        'page-margin': '20px',
+      },
+      fontFamily: {
+        'display': ['"Afacad Flux"', 'sans-serif'],
+        'headline': ['"Afacad Flux"', 'sans-serif'],
+        'title': ['"Instrument Sans"', 'sans-serif'],
+        'body': ['"Instrument Sans"', 'sans-serif'],
+        'label': ['"Instrument Sans"', 'sans-serif'],
+        'mono': ['"Spline Sans Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['40px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '120ms',
+        'surface-enter': '240ms',
+        'surface-exit': '160ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@500;600;700&amp;family=Instrument+Sans:wght@400;500;600;700&amp;family=Spline+Sans+Mono:wght@500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface antialiased">
+
+  <main class="min-h-[1024px] w-full grid grid-cols-12 bg-light-surface" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+    <!-- Left Brand & Palette Showcase Panel (6 cols) -->
+    <section aria-label="PlumLedger Overview" class="col-span-6 min-h-[1024px] bg-royal-plum text-peach-cream p-gutter-xl flex flex-col justify-between" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="flex items-center gap-gutter-md">
+        <div class="w-11 h-11 rounded-xl bg-peach-cream text-midnight-plum flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-title-lg" aria-hidden="true">account_balance_wallet</span>
+        </div>
+        <span class="font-headline text-headline-lg text-peach-cream" data-design-text-token="headline-lg">PlumLedger</span>
+      </div>
+
+      <div class="max-w-md flex flex-col gap-gutter-lg">
+        <h1 class="font-headline text-display-lg text-peach-cream text-balance" data-design-text-token="display-lg">
+          Know where every rupee goes, without spreadsheets.
+        </h1>
+        <p class="font-body text-body-lg text-warm-blush text-pretty" data-design-text-token="body-lg">
+          Track daily expenses, manage income sources, set category budgets, and get personalised AI insights built for students and young professionals.
+        </p>
+
+        <!-- Stacked Palette Pill Preview -->
+        <div class="flex flex-col gap-gutter-sm pt-gutter-md">
+          <div class="px-gutter-lg py-gutter-md rounded-full bg-velvet-plum text-peach-cream flex items-center justify-between">
+            <span class="font-label text-label-md" data-design-text-token="label-md">Smart Category Budgets</span>
+            <span class="font-mono text-mono-sm tabular-nums" data-design-text-token="mono-sm">FR5 · FR11</span>
+          </div>
+          <div class="px-gutter-lg py-gutter-md rounded-full bg-dusty-mauve text-peach-cream flex items-center justify-between">
+            <span class="font-label text-label-md" data-design-text-token="label-md">AI Spending Insights</span>
+            <span class="font-mono text-mono-sm tabular-nums" data-design-text-token="mono-sm">FR9 · FR10</span>
+          </div>
+          <div class="px-gutter-lg py-gutter-md rounded-full bg-peach-cream text-midnight-plum flex items-center justify-between">
+            <span class="font-label text-label-md" data-design-text-token="label-md">Private &amp; Local-First Tracking</span>
+            <span class="font-mono text-mono-sm tabular-nums" data-design-text-token="mono-sm">NFR1 · NFR9</span>
+          </div>
+        </div>
+      </div>
+
+      <span class="font-label text-label-sm text-warm-blush" data-design-text-token="label-sm">AI-Powered Smart Personal Finance &amp; Expense Tracker</span>
+    </section>
+
+    <!-- Right Auth Form Card (6 cols — FR1) -->
+    <section aria-label="Account Authentication" class="col-span-6 min-h-[1024px] p-gutter-xl flex items-center justify-center" data-stitch-vh="min-h-[1024px]===min-h-screen">
+      <div class="w-full max-w-md p-gutter-xl rounded-2xl bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-gutter-lg">
+
+        <!-- Sign In / Register Switch -->
+        <div class="grid grid-cols-2 gap-gutter-xs p-gutter-xs rounded-full bg-light-surface-container-low">
+          <button type="button" id="tab-signin" onclick="switchAuthTab(&#39;signin&#39;)" class="py-gutter-sm rounded-full bg-royal-plum text-peach-cream font-label text-label-lg">
+            <span data-design-text-token="label-lg">Sign In</span>
+          </button>
+          <button type="button" id="tab-register" onclick="switchAuthTab(&#39;register&#39;)" class="py-gutter-sm rounded-full text-light-on-surface-variant font-label text-label-lg">
+            <span data-design-text-token="label-lg">Create Account</span>
+          </button>
+        </div>
+
+        <div class="flex flex-col gap-gutter-xs">
+          <h2 id="auth-heading" class="font-headline text-headline-lg text-light-on-surface" data-design-text-token="headline-lg">Welcome back</h2>
+          <p id="auth-sub" class="font-body text-body-md text-light-on-surface-variant" data-design-text-token="body-md">Sign in to review your November budgets and AI insights.</p>
+        </div>
+
+        <form class="flex flex-col gap-gutter-md">
+          <div id="name-field" class="hidden flex-col gap-gutter-xs">
+            <label for="auth-name" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Full Name</label>
+            <input id="auth-name" type="text" placeholder="Shrusti M Y" class="px-gutter-md py-gutter-sm rounded-xl bg-light-surface-container-low border border-light-outline-variant font-body text-body-md text-light-on-surface focus-visible:ring-2 focus-visible:ring-royal-plum">
+          </div>
+
+          <div class="flex flex-col gap-gutter-xs">
+            <label for="auth-email" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Email Address</label>
+            <input id="auth-email" type="email" required placeholder="shrusti@university.edu.in" class="px-gutter-md py-gutter-sm rounded-xl bg-light-surface-container-low border border-light-outline-variant font-body text-body-md text-light-on-surface focus-visible:ring-2 focus-visible:ring-royal-plum">
+          </div>
+
+          <div class="flex flex-col gap-gutter-xs">
+            <div class="flex items-center justify-between">
+              <label for="auth-password" class="font-label text-label-md text-light-on-surface" data-design-text-token="label-md">Password</label>
+              <a href="#forgot" class="font-label text-label-sm text-royal-plum hover:underline" data-design-text-token="label-sm">Forgot password?</a>
+            </div>
+            <div class="relative">
+              <input id="auth-password" type="password" required placeholder="Enter your password" class="w-full px-gutter-md py-gutter-sm pr-10 rounded-xl bg-light-surface-container-low border border-light-outline-variant font-body text-body-md text-light-on-surface focus-visible:ring-2 focus-visible:ring-royal-plum">
+              <button type="button" aria-label="Toggle password visibility" onclick="togglePassword()" class="absolute right-3 top-1/2 -translate-y-1/2 text-light-on-surface-variant hover:text-royal-plum">
+                <span id="pw-icon" class="material-symbols-outlined text-title-md" aria-hidden="true">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" id="auth-submit" class="mt-gutter-sm w-full py-gutter-md rounded-full bg-royal-plum text-peach-cream font-label text-label-lg hover:bg-velvet-plum transition-colors duration-state-change">
+            <span data-design-text-token="label-lg">Sign In to PlumLedger</span>
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function switchAuthTab(mode) {
+      var signinBtn = document.getElementById('tab-signin');
+      var regBtn = document.getElementById('tab-register');
+      var nameField = document.getElementById('name-field');
+      var heading = document.getElementById('auth-heading');
+      var sub = document.getElementById('auth-sub');
+      var submit = document.getElementById('auth-submit').querySelector('span');
+
+      if (mode === 'register') {
+        regBtn.className = 'py-gutter-sm rounded-full bg-royal-plum text-peach-cream font-label text-label-lg';
+        signinBtn.className = 'py-gutter-sm rounded-full text-light-on-surface-variant font-label text-label-lg';
+        nameField.classList.remove('hidden');
+        nameField.classList.add('flex');
+        heading.textContent = 'Create your account';
+        sub.textContent = 'Start tracking income, expenses, and budgets in minutes.';
+        submit.textContent = 'Create PlumLedger Account';
+      } else {
+        signinBtn.className = 'py-gutter-sm rounded-full bg-royal-plum text-peach-cream font-label text-label-lg';
+        regBtn.className = 'py-gutter-sm rounded-full text-light-on-surface-variant font-label text-label-lg';
+        nameField.classList.add('hidden');
+        nameField.classList.remove('flex');
+        heading.textContent = 'Welcome back';
+        sub.textContent = 'Sign in to review your November budgets and AI insights.';
+        submit.textContent = 'Sign In to PlumLedger';
+      }
+    }
+
+    function togglePassword() {
+      var pw = document.getElementById('auth-password');
+      var icon = document.getElementById('pw-icon');
+      if (pw.type === 'password') {
+        pw.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        pw.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+  </script>
+
+
+
+</body></html>
